@@ -77,6 +77,7 @@
     <Compile Include="EF\OnRepair.cs" />
     <Compile Include="EF\Repair.cs" />
     <Compile Include="Model\Machine.cs" />
+    <Compile Include="Model\ShortMachine.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

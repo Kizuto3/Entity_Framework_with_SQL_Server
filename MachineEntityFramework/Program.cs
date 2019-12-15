@@ -10,15 +10,7 @@ namespace MachineEntityFramework
         static void Main(string[] args)
         {
             WriteLine("Fun with Entity Framework");
-            ReadLine();
-            MachineDb.AddNewRecord(new Machine()
-            {
-                producer = "GarbagePC",
-                machineType = "pc",
-                price = 123.21f,
-                flops = 432
-            });
-            //changes
+            MachineDb.FindWithId(1);
             ReadLine();
         }
     }

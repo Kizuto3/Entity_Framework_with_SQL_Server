@@ -2,6 +2,8 @@
 using System;
 using System.Collections.Generic;
 using static System.Console;
+using MachineEntityFramework.Model;
+using System.Linq;
 
 namespace MachineEntityFramework.DatabaseHelpers
 {
@@ -54,6 +56,35 @@ namespace MachineEntityFramework.DatabaseHelpers
                 {
                     WriteLine(ex.InnerException.Message);
                 }
+            }
+        }
+
+        public static void PrintShortMachines()
+        {
+            using (var context = new MachineEntities())
+            {
+                foreach (ShortMachine shortMachine in context.Database.SqlQuery(typeof(ShortMachine), "Select id, producer from Machines"))
+                {
+                    WriteLine(shortMachine);
+                }
+            }
+        }
+
+        public static void FindWithProducer(string producer)
+        {
+            using (var context = new MachineEntities())
+            {
+                foreach (Machine machine in context.Machines.Where(m => m.producer.Equals(producer, StringComparison.OrdinalIgnoreCase)))
+                {
+                    WriteLine(machine);
+                }
+            }
+        }
+        public static void FindWithId(int id)
+        {
+            using (var context = new MachineEntities())
+            {
+                WriteLine(context.Machines.Find(id));
             }
         }
     }
