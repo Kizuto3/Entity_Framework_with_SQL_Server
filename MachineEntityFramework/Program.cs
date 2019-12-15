@@ -18,6 +18,7 @@ namespace MachineEntityFramework
                 price = 123.21f,
                 flops = 432
             });
+            //changes
             ReadLine();
         }
     }
